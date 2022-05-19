@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MVCDemo3.Models.IPL>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchesPlayed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchesWin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchesLoss)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NetRunrate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamPoints)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesPlayed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesWin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchesLoss)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetRunrate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamPoints)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
